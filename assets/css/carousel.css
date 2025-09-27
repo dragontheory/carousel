@@ -1,0 +1,208 @@
+@import url(https://fonts.bunny.net/css?family=jura:300,500);
+@layer base, demo;
+
+@layer demo {
+
+  .carousel{
+    width: min(100%, 800px);
+    padding: 0;
+    list-style: none;
+    border: 1px solid dodgerblue; 
+    border-radius: 10px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%; 
+    gap:1rem;
+  
+    anchor-name: --carousel;
+    overflow-x: auto;
+    overscroll-behaviour-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+
+    /* markers - thumb dots */
+    scroll-marker-group: after; /* place after elements*/
+    &::scroll-marker-group{
+        position: absolute;
+        inline-size: 100%;
+        max-inline-size: min(90cqi, 200px);
+        position-anchor: --carousel;
+        /*container: marker-group / inline-size;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: center;
+        gap: .25rem;
+        
+        padding-block-start: 1rem;
+        top: anchor( bottom );
+        left: calc(anchor(left) - 10%);
+        right: calc(anchor(right) - 10%);
+   
+    }
+    
+    
+  
+     > li{
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        container-type: scroll-state;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-template-areas: '--title --title' '--img --content';
+        gap: 1rem;
+         padding: 2rem;
+        > h2{
+            grid-area: --title;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        > img{
+           grid-area: --img;
+          width: 100%;
+          object-fit: cover;
+          border-radius: 5px;
+          opacity:1;
+         translate: 0;
+         transition: all 500ms 500ms;
+         /* fade in when snapped */
+         @container not scroll-state(snapped: inline) {
+             opacity: 0;
+             translate: -50px 0;
+          }
+        }
+       > p{
+       		grid-area: --content;
+         	margin-block-start: 0;
+         	opacity:1;
+         	translate: 0;
+         	transition: all 500ms 500ms;
+         	/* fade in when snapped */
+         	@container not scroll-state(snapped: inline) {
+             opacity: .5;
+             translate: 0 150px;
+          }
+       }
+      &::scroll-marker{
+        content: ' ';
+        height:20px;
+         aspect-ratio: 1;
+        background-color: dodgerblue;
+        border-radius:999px;
+        transition: 150ms ease-in-out;
+        /*scale: .65;*/
+      }
+      &::scroll-marker:target-current{
+        background-color: hotpink;
+         aspect-ratio: 2/1.25;
+      }
+      
+        &::scroll-marker:hover{
+          background: hotpink;
+        }
+       &::scroll-marker:focus-visible{
+         outline: 1px dashed dodgerblue;
+         outline-offset: 4px;
+       }
+    }
+    /* nav buttons (left and right) */
+     &::scroll-button(*){
+       position: absolute;
+       position-anchor: --carousel;
+       width: fit-content;
+        aspect-ratio: 1/1;
+       top: anchor( bottom );
+         
+       font: inherit;
+       margin: 1rem 0;
+       background-color: dodgerblue;
+       color: #FFF;
+       border:none;
+       border-radius: 3px;
+      opacity: 0.7;
+      cursor: pointer;
+    
+     }
+    &::scroll-button(*):not(:disabled):where(:hover,:focus-visible){
+      opacity: 1;
+         outline: 1px dashed dodgerblue;
+         outline-offset: 4px;
+      
+    }
+    &::scroll-button(*):disabled{
+      opacity: .25;
+      cursor: unset;
+    }
+    &::scroll-button(inline-start){
+      content: '❮';
+       left: calc(anchor(left) + 1rem);
+    }
+    &::scroll-button(inline-end){
+      content: '❯';
+       right: calc(anchor(right) + 1rem);
+    }
+  }
+}
+  
+  
+  /* general styling not relevant for this demo */
+@layer base {
+	* {
+		box-sizing: border-box;
+	}
+	:root {
+		color-scheme: light dark;
+		--bg-dark: rgb(16, 24, 40);
+		--bg-light: rgb(248, 244, 238);
+		--txt-light: rgb(10, 10, 10);
+		--txt-dark: rgb(245, 245, 245););
+		--line-light: rgba(0 0 0 / .25);
+		--line-dark: rgba(255 255 255 / .25);
+    
+    --clr-bg: light-dark(var(--bg-light), var(--bg-dark));
+    --clr-txt: light-dark(var(--txt-light), var(--txt-dark));
+    --clr-lines: light-dark(var(--line-light), var(--line-dark));
+	}
+ 
+	body {
+		background-color: var(--clr-bg);
+		color: var(--clr-txt);
+		min-height: 100svh;
+		margin: 0;
+		padding: 2rem;
+		font-family: "Jura", sans-serif;
+		font-size: 1rem;
+		line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+		& > * {
+			/*outline: 1px dashed red;*/
+		}
+	}
+	h1 {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+
+	.msg-supports {
+		font-size: 0.8rem;
+		/*
+    @supports (animation-timeline: scroll()) {
+			display: none;
+		}
+    @supports (order:sibling-index()) {
+			display: none;
+		}
+    @supports (x: attr(x type(*))) {
+			display: none;
+		}
+    */
+    @supports selector(::scroll-marker-group) {
+			display: none;
+		}
+	}
+}
