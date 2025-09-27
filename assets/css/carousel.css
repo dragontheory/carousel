@@ -148,9 +148,6 @@
   
   /* general styling not relevant for this demo */
 @layer base {
-	* {
-		box-sizing: border-box;
-	}
 	:root {
 		color-scheme: light dark;
 		--bg-dark: rgb(16, 24, 40);
@@ -165,7 +162,7 @@
     --clr-lines: light-dark(var(--line-light), var(--line-dark));
 	}
  
-	body {
+	article {
 		background-color: var(--clr-bg);
 		color: var(--clr-txt);
 		min-height: 100svh;
