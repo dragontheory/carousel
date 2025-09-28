@@ -1,127 +1,35 @@
-<!doctype html>
-<html lang="en-us">
+<app-container>
+	<article>
+		<h1>CSS only carousel using <code>::scroll-*</code></h1>
+		<p class="msg-supports">Sorry, your browser doesn't support <code>animation-timeline</code></p>
 
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="author" content="D7460N" />
-		<meta name="description" content="DHCP Portal" />
-		<meta name="robots" content="index, archive" />
-		<meta name="color-scheme" content="dark light" />
-		<link rel="manifest" href="manifest.webmanifest" crossorigin="use-credentials">
-		<link rel="canonical" href="https://d7460n.dev/" />
-		<link rel="icon" type="image/svg+xml" href="./assets/images/brand/logos/logo.svg" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/loading.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/fallbacks.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/themes.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/layout.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/scrollbars.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/transitions.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/typography.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/responsive.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/carousel.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/a11y.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/forms.css" />
-		<link rel="stylesheet" type="text/css" href="./assets/css/fonts.css" />
-		<title>DHCP Portal</title>
-	</head>
-	<body>
-		<app-container>
-			<app-banner>
-				<p>This is default banner text, not from a server.</p>
-			</app-banner>
-			<header>
-				<app-logo>
-					<a href="/" aria-label="Go to D7460N Architecture Home">D7460N Architecture</a>
-				</app-logo>
-				<label>
-					Layouts
-					<input type="checkbox" checked />
-				</label>
-				<label>
-					&#9788;
-					<input type="checkbox" />
-				</label>
-			</header>
-			<nav>
-				<!-- <h4>Filters</h4> -->
-				<details open>
-					<summary></summary>
-					<section></section>
-				</details>
-				<details open>
-					<summary></summary>
-					<section></section>
-				</details>
-			</nav>
-			<main>
-				<article>
-					<h1>CSS only carousel using <code>::scroll-*</code></h1>
-						<p class="msg-supports">Sorry, your browser doesn't support <code>animation-timeline</code></p>
-					  <ul class="carousel">
-					    <li>
-					      <h2>Lorem ipsum.</h2>
-					      <img src="https://picsum.photos/id/225/200/200" alt="">
-					      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa tenetur laudantium a veritatis repudiandae, commodi nam mollitia sequi eligendi.</p>
-					    </li>
-					    <li>
-					      <h2>Dolorem tenetur</h2>
-					      <img src="https://picsum.photos/id/335/200/200" alt="">
-					      <p>Ad autem cumque vitae ea blanditiis, suscipit dolorum culpa, numquam rem eius nemo, iusto nesciunt delectus facilis perspiciatis illum. Placeat.</p>
-					    </li>
-					    <li>
-					      <h2>Recusandae</h2>
-					      <img src="https://picsum.photos/id/316/200/200" alt="">
-					      <p>Vero, omnis quo sequi tenetur, aperiam ex rem nihil mollitia repellat assumenda ullam quod id praesentium dolore obcaecati perspiciatis! Illum.</p>
-					    </li>
-					    <li>
-					      <h2>Aperiam laborum</h2>
-					      <img src="https://picsum.photos/id/178/200/200" alt="">
-					      <p>Quidem at non vero, fuga in eveniet consectetur corrupti perferendis? Ullam sint distinctio blanditiis, laborum quis iure molestias at sit.</p>
-					    </li>
-					    <li>
-					      <h2>Animi laboriosam </h2>
-					      <img src="https://picsum.photos/id/68/200/200" alt="">
-					      <p>Harum inventore obcaecati numquam aperiam nihil fugiat quis eaque eos iusto dicta, nobis soluta, esse expedita architecto veniam necessitatibus iure?</p>
-					    </li>
-					  </ul>
-				</article>
-			</main>
-			<aside>
-				<h2 aria-live="polite">DETAILS</h2>
-				<label role="button" aria-label="Close">
-					<input type="checkbox" />
-					&#10006;
-				</label>
-				<form>
-					<fieldset></fieldset>
-					<p aria-live="polite"></p>
-					<small>Note: Ensure all fields are filled correctly before submitting.</small>
-					<small>Note: All fields marked with * are required.</small>
-					<label role="button" aria-label="Delete">
-						Delete
-						<input type="checkbox" />
-					</label>
-					<label role="button" aria-label="Reset">
-						Reset
-						<input type="checkbox" />
-					</label>
-					<label role="button" aria-label="Save">
-						Save
-						<input type="checkbox" />
-					</label>
-				</form>
-			</aside>
-			<footer>
-				<powered-by>Powered by : :
-					<a href="https://github.com/D7460N/" target="_blank" rel="noopener">D7460N</a></powered-by>
-				<app-version>v.0.00001</app-version>
-			</footer>
-			<app-banner>
-				<p>This is default banner text, not from a server.</p>
-			</app-banner>
-		</app-container>
-	</body>
-</html>
+		<ul class="carousel">
+			<li>
+				<h2>Lorem ipsum.</h2>
+				<img src="https://picsum.photos/id/225/200/200" alt="">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsa tenetur laudantium a veritatis repudiandae, commodi nam mollitia sequi eligendi.</p>
+			</li>
+			<li>
+				<h2>Dolorem tenetur</h2>
+				<img src="https://picsum.photos/id/335/200/200" alt="">
+				<p>Ad autem cumque vitae ea blanditiis, suscipit dolorum culpa, numquam rem eius nemo, iusto nesciunt delectus facilis perspiciatis illum. Placeat.</p>
+			</li>
+			<li>
+				<h2>Recusandae</h2>
+				<img src="https://picsum.photos/id/316/200/200" alt="">
+				<p>Vero, omnis quo sequi tenetur, aperiam ex rem nihil mollitia repellat assumenda ullam quod id praesentium dolore obcaecati perspiciatis! Illum.</p>
+			</li>
+			<li>
+				<h2>Aperiam laborum</h2>
+				<img src="https://picsum.photos/id/178/200/200" alt="">
+				<p>Quidem at non vero, fuga in eveniet consectetur corrupti perferendis? Ullam sint distinctio blanditiis, laborum quis iure molestias at sit.</p>
+			</li>
+			<li>
+				<h2>Animi laboriosam </h2>
+				<img src="https://picsum.photos/id/68/200/200" alt="">
+				<p>Harum inventore obcaecati numquam aperiam nihil fugiat quis eaque eos iusto dicta, nobis soluta, esse expedita architecto veniam necessitatibus iure?</p>
+			</li>
+
+		</ul>
+	</article>
+</app-container>
